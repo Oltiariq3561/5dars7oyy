@@ -16,7 +16,7 @@ function Home() {
         }
       })
       .catch(err => console.log(err));
-  }, []); 
+  }, []);
 
   const handleRedirect = (id) => {
     navigate(`/products/${id}`);

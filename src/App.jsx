@@ -1,15 +1,15 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import Home from './Pages/Home';
+import Home from './Pages/HomePage';
 import About from './Pages/About';
-import Cart from './Pages/Cart';
-import Checkout from './Pages/Checkout';
-import Details from './Pages/Details';
+import Cart from './Pages/CartPage';
+import Checkout from './Pages/CheckoutPage';
+import Details from './Pages/DetailsPage';
 import ErrorPage from './Pages/ErrorPage';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Orders from './Pages/Orders';
-import Products from './Pages/Products';
+import Products from './Pages/ProductsPage';
 import MainLayout from './layouts/MainLayout';
 
 export const CartContext = createContext();
@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'));
-    } else if (!(location.pathname === '/' || location.pathname.includes('register') || location.pathname.includes('about') || location.pathname.includes('products') || location.pathname.includes('cart'))) {
+    } else if (!(location.pathname === '/' || location.pathname.includes('register') || location.pathname.includes('about') || location.pathname.includes('checkout') || location.pathname.includes('products') || location.pathname.includes('cart'))) {
       navigate('/login');
     }
   }, [navigate, location.pathname]);
@@ -51,11 +51,9 @@ function App() {
           <Route path="/products" element={<MainLayout><Products /></MainLayout>} />
           <Route path="/checkout"
             element={
-              <PrivateRoute isAuth={!!token}>
                 <MainLayout>
                   <Checkout />
                 </MainLayout>
-              </PrivateRoute>
             }
           />
           <Route path="/orders"

@@ -20,6 +20,9 @@ function MainLayout({ children }) {
           <Link to="/about" className="text-gray-400 hover:text-blue-500">About</Link>
           <Link to="/products" className="text-gray-400 hover:text-blue-500">Products</Link>
           <Link to="/cart" className="text-gray-400 hover:text-blue-500">Cart</Link>
+          <Link to="/checkout" className="text-gray-400 hover:text-blue-500">Checkout</Link>
+          <Link to="/cart" className="text-gray-400 hover:text-blue-500">Cart</Link>
+
         </nav>
         <div className='wrap flex gap-7'>
         <FaRegSun className='w-[30px] h-[30px]'/>

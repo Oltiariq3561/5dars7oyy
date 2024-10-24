@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { http } from '../axios';
 
 function Details() {
@@ -7,6 +7,7 @@ function Details() {
   const [color, setColor] = useState('');
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
+  const navigate = useNavigate(); // navigate hookini qo'shish
 
   useEffect(() => {
     http.get(`products/${id}`)
@@ -30,11 +31,15 @@ function Details() {
       color,
       amount,
     };
+    
     const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
     existingCart.push(cartItem);
     localStorage.setItem('cart', JSON.stringify(existingCart));
 
     alert('Added to cart!');
+
+    // Checkout sahifasiga yo'naltirish
+    navigate('/checkout'); 
   };
 
   return (

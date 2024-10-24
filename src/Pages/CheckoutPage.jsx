@@ -21,11 +21,7 @@ function CheckoutPage() {
       alert('Please fill in all fields.');
       return;
     }
-    
-    // Bu yerda buyurtma berish jarayonini qo'shishingiz mumkin
     alert(`Order placed successfully for ${username} at ${address}!`);
-
-    // Xaridlarni tozalash
     localStorage.removeItem('cart');
     setCartItems([]);
     setUsername('');

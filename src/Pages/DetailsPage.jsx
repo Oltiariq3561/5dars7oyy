@@ -7,7 +7,7 @@ function Details() {
   const [color, setColor] = useState('');
   const [amount, setAmount] = useState(1);
   const { id } = useParams();
-  const navigate = useNavigate(); // navigate hookini qo'shish
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     http.get(`products/${id}`)
@@ -37,8 +37,6 @@ function Details() {
     localStorage.setItem('cart', JSON.stringify(existingCart));
 
     alert('Added to cart!');
-
-    // Checkout sahifasiga yo'naltirish
     navigate('/checkout'); 
   };
 

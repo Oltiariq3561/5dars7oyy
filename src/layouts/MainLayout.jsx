@@ -15,6 +15,7 @@ function MainLayout({ children }) {
         <div className="flex items-center space-x-4">
           <div className="bg-blue-500 p-4 px-5 rounded text-white font-bold">C</div>
         </div> 
+        
         <nav className="flex space-x-4">
           <Link to="/" className="text-gray-400 hover:text-blue-500">Home</Link>
           <Link to="/about" className="text-gray-400 hover:text-blue-500">About</Link>
